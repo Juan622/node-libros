@@ -1,4 +1,4 @@
-1. Clonar el repositorio de Git URL: 
+1. Clonar el repositorio de Git URL: https://github.com/Juan622/node-libros
 2. Crear una DB SQL llamada Libros, importar a sql server el archivo(Libros DB) de la carpeta llamada Base de datos. 
 3. Abrir la carpeta Libros con Visual Studio Code.
 4. Configurar el archivo .env con los datos de tu BD local, adicional a esto crea tu palabra secreta para JWT_SECRET como esta 
