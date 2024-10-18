@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const authenticateJWT = require('../controllers/booksControllers');
+const login = require('../controllers/userLoginControllers');
 
 
 /**
  * @swagger
  * /login:
  *   post: 
- *     description: Inicia sesión y devuelve un token JWT.
- *     tags: [Autenticación Create Token]
+ *     description: Inicia sesión y devuelve un token JWT para addBook, updateBook y deleteBook.
+ *     tags: [Usuario registrado crea Token]
  *     requestBody: 
  *       required: true
  *       content:
@@ -44,6 +44,6 @@ const authenticateJWT = require('../controllers/booksControllers');
  *                   type: string
  *                   example: "Credenciales incorrectas"
  */
-router.post('/login', authenticateJWT.login);
+router.post('/login', login);
 
 module.exports = router;

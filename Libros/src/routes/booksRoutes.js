@@ -1,7 +1,7 @@
 const Router = require('express');
+const router = Router();
 const BooksControllers = require("../controllers/booksControllers");
 const authenticateJWT = require('../controllers/authControllers'); 
-const router = Router();
 
 
 /**
@@ -9,7 +9,7 @@ const router = Router();
  * /getBooks:
  *   get:
  *     description: Responde la lista de todos los libros.
- *     tags: [Libros]
+ *     tags: [Libros BD]
  *     responses:
  *       200:
  *         description: Retorna todos los libros en formato JSON.
@@ -44,7 +44,7 @@ router.get("/getBooks", BooksControllers.getBooks);
  * /getBook/{LibroID}:
  *   get:
  *     description: Obtiene un libro específico por su ID.
- *     tags: [Libros]
+ *     tags: [Libros BD]
  *     parameters:
  *       - in: path
  *         name: LibroID
@@ -87,8 +87,7 @@ router.get("/getBook/:LibroID", BooksControllers.getBook);
  *     security:
  *       - bearerAuth: []   # Hacer referencia al esquema de seguridad JWT
  *     description: Agrega un nuevo libro en formato JSON.
- *     tags: 
- *       - Libros
+ *     tags: [Libros BD]
  *     requestBody:  # Definición del cuerpo de la solicitud
  *       required: true
  *       content:
@@ -131,7 +130,7 @@ router.post("/addBook", authenticateJWT, BooksControllers.addBook);
  * /updateBook/{LibroID}:
  *   put:
  *     description: Actualiza un libro específico por su ID.
- *     tags: [Libros]
+ *     tags: [Libros BD]
  *     parameters:
  *       - in: path
  *         name: LibroID
@@ -181,7 +180,7 @@ router.put("/updateBook/:LibroID", authenticateJWT, BooksControllers.updateBook)
  *     security:
  *       - bearerAuth: []
  *     description: Elimina un libro específico por su ID.
- *     tags: [Libros]
+ *     tags: [Libros BD]
  *     parameters:
  *       - in: path
  *         name: LibroID
