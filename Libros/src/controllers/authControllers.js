@@ -4,18 +4,18 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const authenticateJWT = (req, res, next) => {
-    const token = req.header('Authorization')?.split(' ')[1]; // Extraer el token
+    const token = req.header('Authorization')?.split(' ')[1]; 
 
     if (!token) {
-        return res.sendStatus(403); // Forbidden si no hay token
+        return res.sendStatus(403);
     }
 
     jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
         if (err) {
-            return res.sendStatus(403); // Forbidden si el token es inválido
+            return res.sendStatus(403); 
         }
-        req.user = user; // Almacenar la información del usuario
-        next(); // Pasar al siguiente middleware o controlador
+        req.user = user; 
+        next(); 
     });
 };
 
